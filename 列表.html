@@ -7,191 +7,60 @@
   <title>列表</title>
   <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/8.0.1/normalize.css">
   <style>
-    .list th{
-      
-      border:1px solid gray;
+    #list table,tr,th,td{margin:0;padding:0;}
+    #list th{
+      width:500px;
+      font-size:16px;
+      padding:0 5px;
+      height:50px;
+      /* border:1px solid gray; */
     }
-    .list td{
+    #list td{
+      height:30px;
+      font-size: 14px;
       text-align: center;
-      padding:0 10px;
-      border:1px solid gray;
+      padding:0 5px;
+      /* border:1px solid gray; */
     }
-    .list-sz{font-size:20px;}
+    #list .l-xq{
+      display: none;
+    }
+    #list .l-sz{background-color:#F7F8FB;}
   </style>
 </head>
 <body>
-  <div class='list' id="list">
+  <div id="list">
     <table>
-      <tr class='l-head'>
-        <th class='l-bl'>版类</th>
-        <th class='l-dh'>单号</th>
-        <th class='l-kh'>款号</th>
-        <th class='l-bc'>版次</th>
-        <th class='l-gdy'>跟单员</th>
-        <th class='l-jgs'>加工商</th>
-        <th class='l-fzl'>发资料</th>
-        <th class='l-syy'>收样衣</th>
-        <th class='l-bj'>报价</th>
-        <th class='l-jyy'>寄样衣</th>
-        <th class='l-jbrq'>
-          <span>交版日期</span>
-          <!-- <span>寄版日期</span> -->
-        </th>
-        <th class='l-zdrq'>制单日期</th>
+      <tr>
+        <th>单号</th>
       </tr>
-      <tr class='l-sub' id="c-list">
-        <td class='l-bl'>重打版</td>
-        <td class='l-dh'>SP190603-10-002</td>
-        <td class='l-kh'>1DR-05CP062-4F-RS1-A</td>
-        <td class='l-bc'>1</td>
-        <td class='l-gdy'>跟单员</td>
-        <td class='l-jgs'>梁厂长/袁小姐</td>
-        <td class='l-fzl'>&#8730;</td>
-        <td class='l-syy'>&#215;</td>
-        <td class='l-bj'>&#215;</td>
-        <td class='l-jyy'>&#215;</td>
-        <td class='l-jbrq'>2019/6/6</td>
-        <td class='l-zdrq'>2019/6/6</td>
+      <tr class="l-lb">
+        <td><a href="javascript:void(0)">SP190603-10-002</a></td>
+        <td><a href="javascript:void(0)">1DR-05CP062</a></td>
       </tr>
-      <tr class='l-sub' id="c-list">
-        <td class='l-bl'>重打版</td>
-        <td class='l-dh'>SP190603-10-002</td>
-        <td class='l-kh'>1DR-05CP062-4F-RS1-A</td>
-        <td class='l-bc'>1</td>
-        <td class='l-gdy'>跟单员</td>
-        <td class='l-jgs'>梁厂长/袁小姐</td>
-        <td class='l-fzl'>&#8730;</td>
-        <td class='l-syy'>&#215;</td>
-        <td class='l-bj'>&#215;</td>
-        <td class='l-jyy'>&#215;</td>
-        <td class='l-jbrq'>2019/6/6</td>
-        <td class='l-zdrq'>2019/6/6</td>
+      <tr class='l-xq'>
+        <td colspan='2'>
+          <table>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+            </tr>
+          </table>
+        </td>
       </tr>
-      <tr class='l-sub' id="c-list">
-        <td class='l-bl'>重打版</td>
-        <td class='l-dh'>SP190603-10-002</td>
-        <td class='l-kh'>1DR-05CP062-4F-RS1-A</td>
-        <td class='l-bc'>1</td>
-        <td class='l-gdy'>跟单员</td>
-        <td class='l-jgs'>梁厂长/袁小姐</td>
-        <td class='l-fzl'>&#8730;</td>
-        <td class='l-syy'>&#215;</td>
-        <td class='l-bj'>&#215;</td>
-        <td class='l-jyy'>&#215;</td>
-        <td class='l-jbrq'>2019/6/6</td>
-        <td class='l-zdrq'>2019/6/6</td>
+      <tr class="l-lb">
+        <td><a href="javascript:void(0)">SP190603-10-002</a></td>
+        <td><a href="javascript:void(0)">1DR-05CP062</a></td>
       </tr>
-      <tr class='l-sub' id="c-list">
-        <td class='l-bl'>重打版</td>
-        <td class='l-dh'>SP190603-10-002</td>
-        <td class='l-kh'>1DR-05CP062-4F-RS1-A</td>
-        <td class='l-bc'>1</td>
-        <td class='l-gdy'>跟单员</td>
-        <td class='l-jgs'>梁厂长/袁小姐</td>
-        <td class='l-fzl'>&#8730;</td>
-        <td class='l-syy'>&#215;</td>
-        <td class='l-bj'>&#215;</td>
-        <td class='l-jyy'>&#215;</td>
-        <td class='l-jbrq'>2019/6/6</td>
-        <td class='l-zdrq'>2019/6/6</td>
-      </tr>
-      <tr class='l-sub' id="c-list">
-        <td class='l-bl'>重打版</td>
-        <td class='l-dh'>SP190603-10-002</td>
-        <td class='l-kh'>1DR-05CP062-4F-RS1-A</td>
-        <td class='l-bc'>1</td>
-        <td class='l-gdy'>跟单员</td>
-        <td class='l-jgs'>梁厂长/袁小姐</td>
-        <td class='l-fzl'>&#8730;</td>
-        <td class='l-syy'>&#215;</td>
-        <td class='l-bj'>&#215;</td>
-        <td class='l-jyy'>&#215;</td>
-        <td class='l-jbrq'>2019/6/6</td>
-        <td class='l-zdrq'>2019/6/6</td>
-      </tr>
-      <tr class='l-sub' id="c-list">
-        <td class='l-bl'>重打版</td>
-        <td class='l-dh'>SP190603-10-002</td>
-        <td class='l-kh'>1DR-05CP062-4F-RS1-A</td>
-        <td class='l-bc'>1</td>
-        <td class='l-gdy'>跟单员</td>
-        <td class='l-jgs'>梁厂长/袁小姐</td>
-        <td class='l-fzl'>&#8730;</td>
-        <td class='l-syy'>&#215;</td>
-        <td class='l-bj'>&#215;</td>
-        <td class='l-jyy'>&#215;</td>
-        <td class='l-jbrq'>2019/6/6</td>
-        <td class='l-zdrq'>2019/6/6</td>
-      </tr>
-      <tr class='l-sub' id="c-list">
-        <td class='l-bl'>重打版</td>
-        <td class='l-dh'>SP190603-10-002</td>
-        <td class='l-kh'>1DR-05CP062-4F-RS1-A</td>
-        <td class='l-bc'>1</td>
-        <td class='l-gdy'>跟单员</td>
-        <td class='l-jgs'>梁厂长/袁小姐</td>
-        <td class='l-fzl'>&#8730;</td>
-        <td class='l-syy'>&#215;</td>
-        <td class='l-bj'>&#215;</td>
-        <td class='l-jyy'>&#215;</td>
-        <td class='l-jbrq'>2019/6/6</td>
-        <td class='l-zdrq'>2019/6/6</td>
-      </tr>
-      <tr class='l-sub' id="c-list">
-        <td class='l-bl'>重打版</td>
-        <td class='l-dh'>SP190603-10-002</td>
-        <td class='l-kh'>1DR-05CP062-4F-RS1-A</td>
-        <td class='l-bc'>1</td>
-        <td class='l-gdy'>跟单员</td>
-        <td class='l-jgs'>梁厂长/袁小姐</td>
-        <td class='l-fzl'>&#8730;</td>
-        <td class='l-syy'>&#215;</td>
-        <td class='l-bj'>&#215;</td>
-        <td class='l-jyy'>&#215;</td>
-        <td class='l-jbrq'>2019/6/6</td>
-        <td class='l-zdrq'>2019/6/6</td>
-      </tr>
-      <tr class='l-sub' id="c-list">
-        <td class='l-bl'>重打版</td>
-        <td class='l-dh'>SP190603-10-002</td>
-        <td class='l-kh'>1DR-05CP062-4F-RS1-A</td>
-        <td class='l-bc'>1</td>
-        <td class='l-gdy'>跟单员</td>
-        <td class='l-jgs'>梁厂长/袁小姐</td>
-        <td class='l-fzl'>&#8730;</td>
-        <td class='l-syy'>&#215;</td>
-        <td class='l-bj'>&#215;</td>
-        <td class='l-jyy'>&#215;</td>
-        <td class='l-jbrq'>2019/6/6</td>
-        <td class='l-zdrq'>2019/6/6</td>
-      </tr>
-      <tr class='l-sub' id="c-list">
-        <td class='l-bl'>重打版</td>
-        <td class='l-dh'>SP190603-10-002</td>
-        <td class='l-kh'>1DR-05CP062-4F-RS1-A</td>
-        <td class='l-bc'>1</td>
-        <td class='l-gdy'>跟单员</td>
-        <td class='l-jgs'>梁厂长/袁小姐</td>
-        <td class='l-fzl'>&#8730;</td>
-        <td class='l-syy'>&#215;</td>
-        <td class='l-bj'>&#215;</td>
-        <td class='l-jyy'>&#215;</td>
-        <td class='l-jbrq'>2019/6/6</td>
-        <td class='l-zdrq'>2019/6/6</td>
-      </tr>
-      <tr class='l-sub' id="c-list">
-        <td class='l-bl'>重打版</td>
-        <td class='l-dh'>SP190603-10-002</td>
-        <td class='l-kh'>1DR-05CP062-4F-RS1-A</td>
-        <td class='l-bc'>1</td>
-        <td class='l-gdy'>跟单员</td>
-        <td class='l-jgs'>梁厂长/袁小姐</td>
-        <td class='l-fzl'>&#8730;</td>
-        <td class='l-syy'>&#215;</td>
-        <td class='l-bj'>&#215;</td>
-        <td class='l-jyy'>&#215;</td>
-        <td class='l-jbrq'>2019/6/6</td>
-        <td class='l-zdrq'>2019/6/6</td>
+      <tr class='l-xq'>
+        <td colspan='2'>
+          <table>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+            </tr>
+          </table>
+        </td>
       </tr>
     </table>
   </div>
@@ -201,14 +70,26 @@
     //   作者： 大盛
     //   时间： 20190615_235055
     //  
-    var list = document.getElementById("list").getElementsByTagName("tr");
+    var list = document.getElementById("list").getElementsByClassName("l-lb");
     console.log(list);
-    for(var i = 1; i < list.length; i++){
+    for(var i = 0; i < list.length; i++){
       list[i].onmousemove = function(){
-        for(var j = 1; j < list.length; j++){
-          list[j].className = "";
+        for(var j = 0; j < list.length; j++){
+          list[j].style.background = "";
         }
-          this.className = "list-sz";
+          this.style.background = "#F7F8FB";
+      }
+    }
+
+    var a = document.getElementById("list").getElementsByTagName("a");
+    var l_xq = document.getElementById("list").getElementsByClassName("l-xq");
+    console.log(l_xq);
+    for(var i = 0; i < a.length; i++){
+      a[i].onclick = function(){
+        for(var j = 0; j < l_xq.length; j++){
+          l_xq[j].style.display = "none";
+        }
+        this.parentNode.parentNode.nextElementSibling.style.display = "block";
       }
     }
 
