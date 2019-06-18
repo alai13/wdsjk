@@ -25,7 +25,7 @@
     #list .l-xq{
       display: none;
     }
-    #list .l-sz{background-color:#F7F8FB;}
+    #list .l-sz{background-color:rgb(111, 117, 136);}
   </style>
 </head>
 <body>
@@ -83,6 +83,7 @@
 
     var a = document.getElementById("list").getElementsByTagName("a");
     var l_xq = document.getElementById("list").getElementsByClassName("l-xq");
+    console.log(a);
     console.log(l_xq);
     for(var i = 0; i < a.length; i++){
       a[i].onclick = function(){
@@ -90,8 +91,42 @@
           l_xq[j].style.display = "none";
         }
         this.parentNode.parentNode.nextElementSibling.style.display = "block";
+        this.parentNode.parentNode.nextElementSibling.firstChild.nextSibling.innerHTML = '13';
+        
       }
     }
+    function ajax(a){
+      var xmlhttp;
+      var y=0;
+      if (window.XMLHttpRequest)
+      {
+          //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+          xmlhttp=new XMLHttpRequest();
+      }
+      else
+      {
+          // IE6, IE5 浏览器执行代码
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange=function()
+      {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+              // console.log(xmlhttp.responseText);
+              y = xmlhttp.responseText;
+              console.log(a);
+          }
+      }
+      xmlhttp.open("GET","/data.php",true);
+      xmlhttp.send();
+      console.log(y);
+      }
+      // console.log(post());
+      post('67890');
+      function test(){
+        return '123';
+      }
+      // console.log(test());
 
   </script>
 </body>
