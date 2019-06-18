@@ -7,9 +7,16 @@
   <title>列表</title>
   <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/8.0.1/normalize.css">
   <style>
+  /* -------------  列表展示start -------------
+  
+  功能： 列表展示、点击列中的元素可在当前列下面展示详细内容
+  作者： 大盛
+  时间： 20190615_235055
+  
+  */
     #list table,tr,th,td{margin:0;padding:0;}
     #list th{
-      width:500px;
+      width:250px;
       font-size:16px;
       padding:0 5px;
       height:50px;
@@ -26,78 +33,67 @@
       display: none;
     }
     #list .l-sz{background-color:rgb(111, 117, 136);}
+  /* -------------  列表展示end -------------   */
   </style>
 </head>
 <body>
+
+
+
+
+
+
+
+  <!-- -------------  列表展示start ------------- 
+  
+  功能： 列表展示、点击列中的元素可在当前列下面展示详细内容
+  作者： 大盛
+  时间： 20190615_235055
+
+  -->
   <div id="list">
     <table>
       <tr>
         <th>单号</th>
+        <th>款号</th>
       </tr>
       <tr class="l-lb">
         <td><a href="javascript:void(0)">SP190603-10-002</a></td>
         <td><a href="javascript:void(0)">1DR-05CP062</a></td>
       </tr>
       <tr class='l-xq'>
-        <td colspan='2'>
-          <table>
-            <tr>
-              <td>1</td>
-              <td>2</td>
-            </tr>
-          </table>
-        </td>
+        <td colspan='2'>1</td>
+      </tr>
+      <tr class='l-xq'>
+        <td colspan='2'>1</td>
       </tr>
       <tr class="l-lb">
         <td><a href="javascript:void(0)">SP190603-10-002</a></td>
         <td><a href="javascript:void(0)">1DR-05CP062</a></td>
       </tr>
       <tr class='l-xq'>
-        <td colspan='2'>
-          <table>
-            <tr>
-              <td>1</td>
-              <td>2</td>
-            </tr>
-          </table>
-        </td>
+        <td colspan='2'>1</td>
+      </tr>
+      <tr class='l-xq'>
+        <td colspan='2'>1</td>
       </tr>
     </table>
   </div>
-  <script text="javascript/text">
-    // 
-    //   功能： 列表展示
-    //   作者： 大盛
-    //   时间： 20190615_235055
-    //  
-    var list = document.getElementById("list").getElementsByClassName("l-lb");
-    console.log(list);
-    for(var i = 0; i < list.length; i++){
-      list[i].onmousemove = function(){
-        for(var j = 0; j < list.length; j++){
-          list[j].style.background = "";
-        }
-          this.style.background = "#F7F8FB";
-      }
-    }
+  <!-- -------------  列表展示end ------------- -->
 
-    var a = document.getElementById("list").getElementsByTagName("a");
-    var l_xq = document.getElementById("list").getElementsByClassName("l-xq");
-    console.log(a);
-    console.log(l_xq);
-    for(var i = 0; i < a.length; i++){
-      a[i].onclick = function(){
-        for(var j = 0; j < l_xq.length; j++){
-          l_xq[j].style.display = "none";
-        }
-        this.parentNode.parentNode.nextElementSibling.style.display = "block";
-        this.parentNode.parentNode.nextElementSibling.firstChild.nextSibling.innerHTML = '13';
-        
-      }
-    }
-    function ajax(a){
+
+
+
+  <script text="javascript/text">
+  // -------------  列表展示start -------------
+  //   功能： 列表展示、点击列中的元素可在当前列下面展示详细内容
+  //   作者： 大盛
+  //   时间： 20190615_235055
+  //  
+
+    // ajax封装
+    function ajax(method,url,data,success){
       var xmlhttp;
-      var y=0;
       if (window.XMLHttpRequest)
       {
           //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
@@ -107,26 +103,59 @@
       {
           // IE6, IE5 浏览器执行代码
           xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      } 
+      if(method == 'GET' && data){
+        url = url + '?' + data;
       }
-      xmlhttp.onreadystatechange=function()
-      {
-          if (xmlhttp.readyState==4 && xmlhttp.status==200)
-          {
-              // console.log(xmlhttp.responseText);
-              y = xmlhttp.responseText;
-              console.log(a);
-          }
+      xmlhttp.open(method,url,true);
+      if(method == 'GET'){
+        xmlhttp.send(null);
+      }else{
+        xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        xmlhttp.send(data);
       }
-      xmlhttp.open("GET","/data.php",true);
-      xmlhttp.send();
-      console.log(y);
+      xmlhttp.onreadystatechange = function(){
+        if(xmlhttp.readyState==4 && xmlhttp.status==200){
+          success(xmlhttp.responseText);
+        }else{
+          success('0');
+        }
       }
-      // console.log(post());
-      post('67890');
-      function test(){
-        return '123';
+    }
+
+    // 鼠标划过列表改变背景颜色
+    var list = document.getElementById("list").getElementsByClassName("l-lb");
+    for(var i = 0; i < list.length; i++){
+      list[i].onmousemove = function(){
+        for(var j = 0; j < list.length; j++){
+          list[j].style.background = "";
+        }
+          this.style.background = "#F7F8FB";
       }
-      // console.log(test());
+    }
+
+    // 列表点击事件
+    var l_a = document.getElementById("list").getElementsByTagName("a");
+    var l_xq = document.getElementById("list").getElementsByClassName("l-xq");
+    for(var i = 0; i < l_a.length; i++){
+      l_a[i].setAttribute("index",i);
+      l_a[i].onclick = function(){
+        for(var j = 0; j < l_xq.length; j++){
+          l_xq[j].style.display = "none";
+        }
+        var k = this.getAttribute("index");
+        // console.log(l_xq[k]);
+        l_xq[k].style.display = "block";
+        var d = l_xq[k].firstChild.nextSibling.innerHTML;
+        console.log(d);
+        if(d == '1'){
+          ajax('GET','/data.php','',function(x){
+            l_xq[k].firstChild.nextSibling.innerHTML = x;
+          })
+        }
+      }
+    }
+  // -------------  列表展示end -------------
 
   </script>
 </body>
